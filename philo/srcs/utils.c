@@ -6,7 +6,7 @@
 /*   By: aguenzao <aguenzao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:11:12 by aguenzao          #+#    #+#             */
-/*   Updated: 2025/03/08 11:57:56 by aguenzao         ###   ########.fr       */
+/*   Updated: 2025/03/08 13:50:38 by aguenzao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,18 +70,20 @@ bool	ft_isint(char *str)
 {
 	char	*max_int;
 	size_t	str_len;
+	int		i;
 
+	i = 0;
 	max_int = "2147483647";
-	if (*str == '+')
-		str++;
+	if (str[i] == '+')
+		i++;
 	str_len = ft_strlen(str);
 	if (str_len > 10)
 		return (false);
 	if (str_len == 10)
-		while (ft_isdigit(*str) && *str <= *max_int++)
-			str++;
+		while (ft_isdigit(str[i]) && str[i] <= *max_int++)
+			i++;
 	else
-		while (ft_isdigit(*str))
-			str++;
-	return (!*str && true);
+		while (ft_isdigit(str[i]))
+			i++;
+	return (!str[i] && true);
 }
