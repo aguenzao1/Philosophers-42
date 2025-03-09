@@ -6,7 +6,7 @@
 /*   By: aguenzao <aguenzao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 11:55:43 by aguenzao          #+#    #+#             */
-/*   Updated: 2025/03/08 12:05:49 by aguenzao         ###   ########.fr       */
+/*   Updated: 2025/03/09 21:59:42 by aguenzao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ bool	ft_write_status(t_philo *philo, char *msg)
 		pthread_mutex_unlock(&philo->args->sync_mutex);
 		return (false);
 	}
-	printf("%lu %d %s\n", ft_now_ms() - philo->args->start_time,
+	printf("%llu %d %s\n", ft_now_ms() - philo->args->start_time,
 		philo->nbr, msg);
 	pthread_mutex_unlock(&philo->args->sync_mutex);
 	return (true);

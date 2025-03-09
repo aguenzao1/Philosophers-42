@@ -6,7 +6,7 @@
 /*   By: aguenzao <aguenzao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:08:55 by aguenzao          #+#    #+#             */
-/*   Updated: 2025/03/08 12:05:22 by aguenzao         ###   ########.fr       */
+/*   Updated: 2025/03/09 21:59:12 by aguenzao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ bool	ft_break_while(t_args *args, int *i)
 		{
 			args->death_occured = true;
 			pthread_mutex_unlock(&args->philos[*i].l_fork);
-			printf("%lu %d died\n",
+			printf("%llu %d died\n",
 				ft_now_ms() - args->start_time, args->philos[*i].nbr);
 		}
 		pthread_mutex_unlock(&args->sync_mutex);
