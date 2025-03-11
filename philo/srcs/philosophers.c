@@ -6,7 +6,7 @@
 /*   By: aguenzao <aguenzao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 11:55:43 by aguenzao          #+#    #+#             */
-/*   Updated: 2025/03/11 11:18:32 by aguenzao         ###   ########.fr       */
+/*   Updated: 2025/03/11 11:56:50 by aguenzao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ bool	ft_write_status(t_philo *philo, char *msg)
 		pthread_mutex_unlock(&philo->args->sync_mutex);
 		return (false);
 	}
-	printf("%llu %d %s\n", ft_now_ms() - philo->args->start_time,
+	printf("%lu %d %s\n", ft_now_ms() - philo->args->start_time,
 		philo->nbr, msg);
 	pthread_mutex_unlock(&philo->args->sync_mutex);
 	return (true);
@@ -89,7 +89,7 @@ void	*proutine(void *data)
 		ft_usleep(philo->args->time2eat);
 		pthread_mutex_lock(&philo->args->sync_mutex);
 		if (philo->meals_count == philo->args->max_meals)
-		philo->args->total_finished += (philo->args->max_meals != -1);
+			philo->args->total_finished += (philo->args->max_meals != -1);
 		pthread_mutex_unlock(&philo->args->sync_mutex);
 		pthread_mutex_unlock(&philo->l_fork);
 		pthread_mutex_unlock(philo->r_fork);
