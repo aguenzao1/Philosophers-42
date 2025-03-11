@@ -14,21 +14,21 @@ SRCS =  srcs/main.c \
 
 OBJS = $(SRCS:.c=.o)
 
-HEADERS = philo.h
+HEADERS = includes/philo.h
 
 all: $(NAME)
 
 %.o: %.c $(HEADERS)
-	@$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) -pthread -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -pthread -o $(NAME)
 
 clean:
-	@$(RM) $(OBJS)
+	$(RM) $(OBJS)
 
 fclean:	clean
-	@$(RM) $(NAME)
+	$(RM) $(NAME)
 
 re:	fclean all
 

@@ -6,7 +6,7 @@
 /*   By: aguenzao <aguenzao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:07:49 by aguenzao          #+#    #+#             */
-/*   Updated: 2025/03/08 15:58:00 by aguenzao         ###   ########.fr       */
+/*   Updated: 2025/03/11 14:29:40 by aguenzao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,12 @@ bool	ft_initialize_args(t_args *args, char **argv)
 		if (!ft_isint(argv[i]))
 			return (false);
 	args->philo_count = ft_atoi(argv[1]);
-	if (args->philo_count > 200)
-		return (false);
 	args->time2die = ft_atoi(argv[2]);
 	args->time2eat = ft_atoi(argv[3]);
 	args->time2sleep = ft_atoi(argv[4]);
 	args->max_meals = -1;
 	if (argv[5])
-	{
 		args->max_meals = ft_atoi(argv[5]);
-		if (!args->max_meals)
-			return (false);
-	}
 	if(pthread_mutex_init(&args->sync_mutex, NULL) != 0)
 		return (false);
 	args->start_time = ft_now_ms();

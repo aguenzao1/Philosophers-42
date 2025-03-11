@@ -6,7 +6,7 @@
 /*   By: aguenzao <aguenzao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:04:40 by aguenzao          #+#    #+#             */
-/*   Updated: 2025/03/11 11:09:07 by aguenzao         ###   ########.fr       */
+/*   Updated: 2025/03/11 14:22:44 by aguenzao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct s_args {
 	bool				everybody_full;
 	uint64_t			start_time;
 	pthread_mutex_t		sync_mutex;
-	struct s_philo		philos[200];
+	struct s_philo		philos[];
 }	t_args;
 
 enum e_fork
@@ -55,7 +55,6 @@ enum e_fork
 };
 
 int			ft_atoi(const char *str);
-int			ft_isdigit(int c);
 bool		ft_isint(char *str);
 uint64_t	ft_now_ms(void);
 size_t		ft_strlen(const char *str);

@@ -6,12 +6,11 @@
 /*   By: aguenzao <aguenzao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:08:55 by aguenzao          #+#    #+#             */
-/*   Updated: 2025/03/11 11:34:54 by aguenzao         ###   ########.fr       */
+/*   Updated: 2025/03/11 12:27:34 by aguenzao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
-
 
 bool	ft_break_while(t_args *args, int *i)
 {
@@ -50,7 +49,7 @@ int	main(int argc, char **argv)
 	memset(&args, 0, sizeof(t_args));
 	if (argc < 5 || argc > 6
 		|| !ft_initialize_args(&args, argv))
-		return (1);
+		return (printf("ERROR: invalid input!\n"),1);
 	ft_initialize_philos(&args);
 	i = -1;
 	while (++i < args.philo_count)
