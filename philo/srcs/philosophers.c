@@ -6,7 +6,7 @@
 /*   By: aguenzao <aguenzao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 11:55:43 by aguenzao          #+#    #+#             */
-/*   Updated: 2025/03/09 21:59:42 by aguenzao         ###   ########.fr       */
+/*   Updated: 2025/03/11 11:18:32 by aguenzao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	*proutine(void *data)
 	t_philo	*philo;
 
 	philo = (t_philo *)data;
-	if (!(philo->nbr & 1))
+	if (philo->nbr % 2 == 0)
 		ft_usleep(10);
 	while (1)
 	{

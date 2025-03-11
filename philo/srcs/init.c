@@ -6,7 +6,7 @@
 /*   By: aguenzao <aguenzao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:07:49 by aguenzao          #+#    #+#             */
-/*   Updated: 2025/03/08 11:54:54 by aguenzao         ###   ########.fr       */
+/*   Updated: 2025/03/08 15:58:00 by aguenzao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ bool	ft_initialize_args(t_args *args, char **argv)
 		if (!args->max_meals)
 			return (false);
 	}
-	pthread_mutex_init(&args->sync_mutex, NULL);
+	if(pthread_mutex_init(&args->sync_mutex, NULL) != 0)
+		return (false);
 	args->start_time = ft_now_ms();
 	return (true);
 }

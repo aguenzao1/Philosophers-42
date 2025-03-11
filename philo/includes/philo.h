@@ -6,7 +6,7 @@
 /*   By: aguenzao <aguenzao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:04:40 by aguenzao          #+#    #+#             */
-/*   Updated: 2025/03/08 11:54:31 by aguenzao         ###   ########.fr       */
+/*   Updated: 2025/03/11 11:09:07 by aguenzao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include <pthread.h>
 # include <sys/time.h>
 # include <unistd.h>
+
+# define INT_MAX 2147483647
 
 typedef struct s_philo {
 	int				nbr;
@@ -53,7 +55,6 @@ enum e_fork
 };
 
 int			ft_atoi(const char *str);
-void		*ft_calloc(size_t count, size_t size);
 int			ft_isdigit(int c);
 bool		ft_isint(char *str);
 uint64_t	ft_now_ms(void);

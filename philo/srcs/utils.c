@@ -6,7 +6,7 @@
 /*   By: aguenzao <aguenzao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:11:12 by aguenzao          #+#    #+#             */
-/*   Updated: 2025/03/09 21:43:27 by aguenzao         ###   ########.fr       */
+/*   Updated: 2025/03/11 11:18:47 by aguenzao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,18 +47,6 @@ int	ft_atoi(const char *str)
 	return (sum * sign);
 }
 
-void	*ft_calloc(size_t count, size_t size)
-{
-	void	*tmp;
-
-	if (count == SIZE_MAX || size == SIZE_MAX)
-		return (NULL);
-	tmp = malloc(size * count);
-	if (!tmp)
-		return (NULL);
-	return (memset(tmp, 0, size * count));
-}
-
 int	ft_isdigit(int c)
 {
 	if ((c >= '0' && c <= '9'))
@@ -66,18 +54,25 @@ int	ft_isdigit(int c)
 	return (0);
 }
 
-bool	ft_isint(char *str)
+bool    ft_isint(char *str)
 {
-	int		i;
+    int		i;
+    long    num;
 
-	i = 0;
-	if (str[i] == '+')
-		i++;
-	while (str[i])
-	{
-		if(!ft_isdigit(str[i]))
-			return(false);
-		i++;
-	}
-	return (true);
+    i = 0;
+    num = 0;
+    if (!str[i])
+        return (false);
+    if (str[i] == '+')
+        i++;
+    while (str[i])
+    {
+        if (!ft_isdigit(str[i]))
+            return (false);
+        num = (num * 10) + (str[i] - '0');
+        if (num > INT_MAX)
+            return (false);
+        i++;
+    }
+    return (true);
 }
