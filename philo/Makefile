@@ -6,6 +6,10 @@ CFLAGS = -Wall -Wextra -Werror -g
 
 RM = rm -f
 
+SANITIZE = -fsanitize=thread -g3
+
+# SANITIZE = -fsanitize=address -g3
+
 SRCS =  srcs/main.c \
 		srcs/init.c \
 		srcs/philosophers.c \
@@ -19,10 +23,10 @@ HEADERS = includes/philo.h
 all: $(NAME)
 
 %.o: %.c $(HEADERS)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(SANITIZE) -c $< -o $@
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -pthread -o $(NAME)
+	$(CC) $(CFLAGS) $(SANITIZE) $(OBJS) -pthread -o $(NAME)
 
 clean:
 	$(RM) $(OBJS)
