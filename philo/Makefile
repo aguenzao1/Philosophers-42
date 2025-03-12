@@ -6,7 +6,7 @@ CFLAGS = -Wall -Wextra -Werror -g
 
 RM = rm -f
 
-SANITIZE = -fsanitize=thread -g3
+# SANITIZE = -fsanitize=thread -g3
 
 # SANITIZE = -fsanitize=address -g3
 
@@ -23,10 +23,10 @@ HEADERS = includes/philo.h
 all: $(NAME)
 
 %.o: %.c $(HEADERS)
-	$(CC) $(CFLAGS) $(SANITIZE) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(SANITIZE) $(OBJS) -pthread -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -pthread -o $(NAME)
 
 clean:
 	$(RM) $(OBJS)
