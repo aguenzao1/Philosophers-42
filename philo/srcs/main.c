@@ -6,7 +6,7 @@
 /*   By: aguenzao <aguenzao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:08:55 by aguenzao          #+#    #+#             */
-/*   Updated: 2025/03/13 12:27:39 by aguenzao         ###   ########.fr       */
+/*   Updated: 2025/03/13 15:26:39 by aguenzao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,12 @@ int main(int argc, char **argv)
 
     memset(&args, 0, sizeof(t_args));
     if (argc < 5 || argc > 6 || !ft_initialize_args(&args, argv))
-        return (printf("ERROR: invalid input!\n"), 1);
-    ft_initialize_philos(&args);
+    {
+        printf("ERROR: invalid input!\n");
+        return (1);
+    }
+    if(!ft_initialize_philos(&args))
+        return (1);
     if (!init_create_philosophers(&args))
     {
         cleanup_philosophers(&args);

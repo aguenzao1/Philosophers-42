@@ -6,7 +6,7 @@
 /*   By: aguenzao <aguenzao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:04:40 by aguenzao          #+#    #+#             */
-/*   Updated: 2025/03/13 12:12:53 by aguenzao         ###   ########.fr       */
+/*   Updated: 2025/03/13 15:25:38 by aguenzao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ bool		ft_isint(char *str);
 uint64_t	ft_now_ms(void);
 void		ft_usleep(uint64_t milli);
 bool		ft_initialize_args(t_args *args, char **argv);
-void		ft_initialize_philos(t_args *args);
+bool		ft_initialize_philos(t_args *args);
 void		*proutine(void	*data);
 
 #endif
