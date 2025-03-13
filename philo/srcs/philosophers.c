@@ -6,13 +6,13 @@
 /*   By: aguenzao <aguenzao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 11:55:43 by aguenzao          #+#    #+#             */
-/*   Updated: 2025/03/11 15:17:19 by aguenzao         ###   ########.fr       */
+/*   Updated: 2025/03/13 12:19:54 by aguenzao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-bool	ft_write_status(t_philo *philo, char *msg)
+static bool	ft_write_status(t_philo *philo, char *msg)
 {
 	pthread_mutex_lock(&philo->args->sync_mutex);
 	if (philo->args->death_occured || philo->args->everybody_full)
@@ -26,7 +26,7 @@ bool	ft_write_status(t_philo *philo, char *msg)
 	return (true);
 }
 
-bool	ft_should_stop(t_philo *philo)
+static bool	ft_should_stop(t_philo *philo)
 {
 	pthread_mutex_lock(&philo->args->sync_mutex);
 	if (philo->args->death_occured || philo->args->everybody_full)
@@ -60,7 +60,7 @@ bool	ft_get_forks(t_philo *philo)
 	return (true);
 }
 
-bool	ft_sleep_think(t_philo *philo)
+static bool	ft_sleep_think(t_philo *philo)
 {
 	if (!ft_write_status(philo, "is sleeping"))
 		return (false);

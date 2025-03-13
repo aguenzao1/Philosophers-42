@@ -6,7 +6,7 @@
 /*   By: aguenzao <aguenzao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:07:49 by aguenzao          #+#    #+#             */
-/*   Updated: 2025/03/13 10:51:27 by aguenzao         ###   ########.fr       */
+/*   Updated: 2025/03/13 12:20:57 by aguenzao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,14 @@ bool	ft_initialize_args(t_args *args, char **argv)
 	args->max_meals = -1;
 	if (argv[5])
 		args->max_meals = ft_atoi(argv[5]);
-	if(pthread_mutex_init(&args->sync_mutex, NULL) != 0)
+	args->philos = malloc(sizeof(t_philo) * args->philo_count);
+	if(!args->philos)
 		return (false);
+	if(pthread_mutex_init(&args->sync_mutex, NULL) != 0)
+	{
+		free(args->philos);
+		return (false);
+	}
 	args->start_time = ft_now_ms();
 	return (true);
 }
