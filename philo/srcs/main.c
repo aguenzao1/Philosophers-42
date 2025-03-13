@@ -6,13 +6,13 @@
 /*   By: aguenzao <aguenzao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:08:55 by aguenzao          #+#    #+#             */
-/*   Updated: 2025/03/13 15:26:39 by aguenzao         ###   ########.fr       */
+/*   Updated: 2025/03/13 15:35:26 by aguenzao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-bool	ft_break_while(t_args *args, int *i)
+static bool ft_break_while(t_args *args, int *i)
 {
 	pthread_mutex_lock(&args->sync_mutex);
 	if (ft_now_ms() - args->philos[*i].last_meal_beginning
