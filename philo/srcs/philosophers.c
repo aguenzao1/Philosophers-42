@@ -6,7 +6,7 @@
 /*   By: aguenzao <aguenzao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 11:55:43 by aguenzao          #+#    #+#             */
-/*   Updated: 2025/03/13 12:19:54 by aguenzao         ###   ########.fr       */
+/*   Updated: 2025/03/13 15:40:53 by aguenzao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static bool	ft_should_stop(t_philo *philo)
 	return (false);
 }
 
-bool	ft_get_forks(t_philo *philo)
+static bool	ft_get_forks(t_philo *philo)
 {
 	if (ft_should_stop(philo))
 		return (false);
