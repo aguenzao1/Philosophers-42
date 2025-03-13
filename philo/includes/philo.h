@@ -6,7 +6,7 @@
 /*   By: aguenzao <aguenzao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:04:40 by aguenzao          #+#    #+#             */
-/*   Updated: 2025/03/12 11:58:28 by aguenzao         ###   ########.fr       */
+/*   Updated: 2025/03/13 10:51:04 by aguenzao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct s_args {
 	bool				everybody_full;
 	uint64_t			start_time;
 	pthread_mutex_t		sync_mutex;
-	struct s_philo		philos[200];
+	struct s_philo		philos[1000];
 }	t_args;
 
 int			ft_atoi(const char *str);

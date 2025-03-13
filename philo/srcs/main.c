@@ -6,7 +6,7 @@
 /*   By: aguenzao <aguenzao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:08:55 by aguenzao          #+#    #+#             */
-/*   Updated: 2025/03/12 15:47:04 by aguenzao         ###   ########.fr       */
+/*   Updated: 2025/03/13 10:35:42 by aguenzao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,10 @@ int	main(int argc, char **argv)
 	ft_initialize_philos(&args);
 	i = -1;
 	while (++i < args.philo_count)
-		pthread_create(&args.philos[i].thread, NULL, proutine, &args.philos[i]);
+	{
+		if((pthread_create(&args.philos[i].thread, NULL, proutine, &args.philos[i])) != 0)
+		return (printf("ERROR: Failed Create!\n"),1);
+	}
 	i = -1;
 	while (++i < args.philo_count && !ft_break_while(&args, &i)) {}
 	i = -1;

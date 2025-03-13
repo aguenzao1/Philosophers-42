@@ -6,7 +6,7 @@
 /*   By: aguenzao <aguenzao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:07:49 by aguenzao          #+#    #+#             */
-/*   Updated: 2025/03/12 12:22:17 by aguenzao         ###   ########.fr       */
+/*   Updated: 2025/03/13 10:51:27 by aguenzao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ bool	ft_initialize_args(t_args *args, char **argv)
 		if (!ft_isint(argv[i]))
 			return (false);
 	args->philo_count = ft_atoi(argv[1]);
-	if (args->philo_count > 200)
-		return (false);
 	args->time2die = ft_atoi(argv[2]);
 	args->time2eat = ft_atoi(argv[3]);
 	args->time2sleep = ft_atoi(argv[4]);
