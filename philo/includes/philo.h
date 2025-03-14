@@ -6,7 +6,7 @@
 /*   By: aguenzao <aguenzao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:04:40 by aguenzao          #+#    #+#             */
-/*   Updated: 2025/03/13 15:25:38 by aguenzao         ###   ########.fr       */
+/*   Updated: 2025/03/14 14:44:57 by aguenzao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@
 
 # define INT_MAX 2147483647
 
-typedef struct s_philo {
+typedef struct s_philo
+{
 	int				nbr;
 	uint64_t		last_meal_beginning;
 	int				meals_count;
@@ -34,7 +35,8 @@ typedef struct s_philo {
 	struct s_args	*args;
 }	t_philo;
 
-typedef struct s_args {
+typedef struct s_args
+{
 	int					philo_count;
 	int					time2die;
 	int					time2eat;

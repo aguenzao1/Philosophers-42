@@ -6,7 +6,7 @@
 /*   By: aguenzao <aguenzao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:07:49 by aguenzao          #+#    #+#             */
-/*   Updated: 2025/03/13 15:25:28 by aguenzao         ###   ########.fr       */
+/*   Updated: 2025/03/14 14:40:33 by aguenzao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ bool	ft_initialize_args(t_args *args, char **argv)
 	if (argv[5])
 		args->max_meals = ft_atoi(argv[5]);
 	args->philos = malloc(sizeof(t_philo) * args->philo_count);
-	if(!args->philos)
+	if (!args->philos)
 		return (false);
-	if(pthread_mutex_init(&args->sync_mutex, NULL) != 0)
+	if (pthread_mutex_init(&args->sync_mutex, NULL) != 0)
 	{
 		free(args->philos);
 		return (false);
@@ -48,9 +48,9 @@ bool	ft_initialize_philos(t_args *args)
 	{
 		args->philos[i].nbr = i + 1;
 		args->philos[i].last_meal_beginning = args->start_time;
-		if((pthread_mutex_init(&args->philos[i].l_fork, NULL)) != 0)
+		if ((pthread_mutex_init(&args->philos[i].l_fork, NULL)) != 0)
 		{
-			while(--i >= 0)
+			while (--i >= 0)
 				pthread_mutex_destroy(&args->philos[i].l_fork);
 			pthread_mutex_destroy(&args->sync_mutex);
 			free(args->philos);

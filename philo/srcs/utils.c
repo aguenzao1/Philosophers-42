@@ -6,7 +6,7 @@
 /*   By: aguenzao <aguenzao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:11:12 by aguenzao          #+#    #+#             */
-/*   Updated: 2025/03/11 14:23:00 by aguenzao         ###   ########.fr       */
+/*   Updated: 2025/03/14 14:42:34 by aguenzao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,29 +46,29 @@ static int	ft_isdigit(int c)
 	return (0);
 }
 
-bool    ft_isint(char *str)
+bool	ft_isint(char *str)
 {
-    int		i;
-    long    num;
+	int		i;
+	long	num;
 
-    i = 0;
-    num = 0;
-    if (!str[i])
-        return (false);
-    if (str[i] == '+')
-        i++;
-	else if(str[i] == '-')
+	i = 0;
+	num = 0;
+	if (!str[i])
 		return (false);
-    while (str[i])
-    {
-        if (!ft_isdigit(str[i]))
-            return (false);
-        num = (num * 10) + (str[i] - '0');
-        if (num > INT_MAX)
-            return (false);
-		if(num == 0)
+	if (str[i] == '+')
+		i++;
+	else if (str[i] == '-')
+		return (false);
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
 			return (false);
-        i++;
-    }
-    return (true);
+		num = (num * 10) + (str[i] - '0');
+		if (num > INT_MAX)
+			return (false);
+		if (num == 0)
+			return (false);
+		i++;
+	}
+	return (true);
 }
