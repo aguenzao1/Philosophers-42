@@ -6,7 +6,7 @@
 /*   By: aguenzao <aguenzao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 11:55:43 by aguenzao          #+#    #+#             */
-/*   Updated: 2025/03/14 14:23:58 by aguenzao         ###   ########.fr       */
+/*   Updated: 2025/03/15 17:26:25 by aguenzao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static bool	ft_write_status(t_philo *philo, char *msg)
 	return (true);
 }
 
-static bool	ft_should_stop(t_philo *philo)
+bool	ft_should_stop(t_philo *philo)
 {
 	pthread_mutex_lock(&philo->args->sync_mutex);
 	if (philo->args->death_occured || philo->args->everybody_full)
@@ -64,7 +64,7 @@ static bool	ft_sleep_think(t_philo *philo)
 {
 	if (!ft_write_status(philo, "is sleeping"))
 		return (false);
-	ft_usleep(philo->args->time2sleep);
+	ft_usleep(philo->args->time2sleep, philo);
 	if (!ft_write_status(philo, "is thinking"))
 		return (false);
 	return (true);
@@ -76,7 +76,7 @@ void	*proutine(void *data)
 
 	philo = (t_philo *)data;
 	if (philo->nbr % 2 == 0)
-		ft_usleep(10);
+		ft_usleep(10, philo);
 	while (1)
 	{
 		if (!ft_get_forks(philo))
@@ -86,7 +86,7 @@ void	*proutine(void *data)
 		philo->last_meal_beginning = ft_now_ms();
 		pthread_mutex_unlock(&philo->args->sync_mutex);
 		ft_write_status(philo, "is eating");
-		ft_usleep(philo->args->time2eat);
+		ft_usleep(philo->args->time2eat, philo);
 		pthread_mutex_lock(&philo->args->sync_mutex);
 		if (philo->meals_count == philo->args->max_meals)
 			philo->args->total_finished += (philo->args->max_meals != -1);
