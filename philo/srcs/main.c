@@ -6,7 +6,7 @@
 /*   By: aguenzao <aguenzao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:08:55 by aguenzao          #+#    #+#             */
-/*   Updated: 2025/03/14 14:45:49 by aguenzao         ###   ########.fr       */
+/*   Updated: 2025/03/15 00:01:22 by aguenzao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ static bool	ft_break_while(t_args *args, int *i)
 		{
 			args->everybody_full = true;
 			pthread_mutex_unlock(&args->philos[*i].l_fork);
-			printf("Every philosopher has eaten %d times\n", args->max_meals);
 		}
 		else
 		{
